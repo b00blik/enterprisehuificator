@@ -1,0 +1,109 @@
+openapi: "3.0.0"
+info:
+  title: Huificator API Definition
+  version: 0.1
+paths:
+  /huify/list:
+    post:
+      tags:
+        - Huification
+      operationId: wordsListHuification
+      summary: Perform words list huification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordsList'
+      responses:
+        '200':
+          description: |-
+            Successful huification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordsList'
+        default:
+          description: |-
+            Default error message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /huify/text:
+    post:
+      tags:
+        - Huification
+      operationId: textHuification
+      summary: Perform raw text huification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RawText'
+      responses:
+        '200':
+          description: |-
+            Successful huification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawText'
+        default:
+          description: |-
+            Default error message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    WordsList:
+      description: List of words
+      type: object
+      properties:
+        wordsList:
+          type: array
+          items:
+            type: string
+
+    RawText:
+      description: Text for huification
+      type: object
+      properties:
+        text:
+          type: string
+
+    FailedHuificationResponse:
+      description: result of adding huification operation
+      type: object
+      properties:
+        errorDescription:
+          type: string
+          description: description of error
+        status:
+          type: boolean
+          description: returns false if there is no points
+          default: false
+      required:
+        - errorDescription
+        - status
+
+    Error:
+      description: An occured exception situation.
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/OperationResult'
+
+
+    OperationResult:
+      properties:
+        statusCode:
+          type: integer
+          description: A status code of this operation result.
+        description:
+          type: string
+          description: A brief description of this operation result.
+      required:
+        - statusCode
