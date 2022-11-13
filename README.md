@@ -9,10 +9,11 @@ Example of huification for some russian words can be following:
 > 
 > пиво - хуиво
 
+Example of huification by service:
+> Некоторый текст – хуекоторый хуекст
+
 Enterprise Huificator has been built to be used as easy-to-integrate microservice for your project.
 
 Based on Spring Boot, this repository contains old-fashioned, classic Java-Microservice-Bullshit with Util classes, 
 a bunch of services and other stuff. Any contributions and enhancements are warmly welcomed!
 
-Example of huification:
-> Некоторый текст – хуекоторый хуекст
