@@ -13,3 +13,6 @@ Enterprise Huificator has been built to be used as easy-to-integrate microservic
 
 Based on Spring Boot, this repository contains old-fashioned, classic Java-Microservice-Bullshit with Util classes, 
 a bunch of services and other stuff. Any contributions and enhancements are warmly welcomed!
+
+Example of huification:
+> Некоторый текст – хуекоторый хуекст
